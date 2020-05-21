@@ -9,6 +9,7 @@ import java.io.IOException
  */
 val ASSETS_DIR = "android_asset"
 val IMAGES_DIR = "images360"
+val ARG_IMAGE = "arg_image"
 
 object ImageUtils {
 

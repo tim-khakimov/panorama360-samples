@@ -1,7 +1,7 @@
 package com.timkhakimov.panorama360sample
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,6 +29,11 @@ class MainActivity : AppCompatActivity() {
     private fun setUpList() {
         rvImages.adapter = adapter
         rvImages.layoutManager = GridLayoutManager(this, 2)
+        adapter.selectImageListener = { openPanorama(it) }
+    }
+
+    private fun openPanorama(image : String) {
+        startActivity(Intent(this, PanoramaActivity::class.java).also { it.putExtra(ARG_IMAGE, image) })
     }
 
     private fun logImages() {
