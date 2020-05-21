@@ -11,5 +11,10 @@ class PanoramaActivity : AppCompatActivity()  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_panorama)
+        intent.getStringExtra(ARG_IMAGE)?.let { showPanorama(it) }
+    }
+
+    private fun showPanorama(image : String) {
+        //todo показать панораму
     }
 }
