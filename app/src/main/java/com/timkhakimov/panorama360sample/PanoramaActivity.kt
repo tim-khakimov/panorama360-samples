@@ -16,7 +16,14 @@ class PanoramaActivity : AppCompatActivity()  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_panorama)
+        setUpPanoramaView()
         intent.getStringExtra(ARG_IMAGE)?.let { showPanorama(it) }
+    }
+
+    private fun setUpPanoramaView() {
+        vrPanoramaView.setInfoButtonEnabled(false)
+        vrPanoramaView.setFullscreenButtonEnabled(false)
+        vrPanoramaView.setStereoModeButtonEnabled(false)
     }
 
     private fun showPanorama(image : String) {
@@ -28,7 +35,7 @@ class PanoramaActivity : AppCompatActivity()  {
         try {
             val inputStream = getAssets().open(imagePath)
             options.inputType = VrPanoramaView.Options.TYPE_MONO
-            pano_view.loadImageFromBitmap(BitmapFactory.decodeStream(inputStream), options)
+            vrPanoramaView.loadImageFromBitmap(BitmapFactory.decodeStream(inputStream), options)
             inputStream.close()
         } catch (e: Exception) {
             e.printStackTrace()
