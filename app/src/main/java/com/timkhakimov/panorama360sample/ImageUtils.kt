@@ -26,6 +26,10 @@ object ImageUtils {
     }
 
     fun getFullImageUrl(fileName : String) : String {
-        return "file:///android_asset/$IMAGES_DIR/$fileName"
+        return "file:///android_asset/" + getAssetsImagePath(fileName)
+    }
+
+    fun getAssetsImagePath(fileName: String) : String {
+        return "$IMAGES_DIR/$fileName"
     }
 }
